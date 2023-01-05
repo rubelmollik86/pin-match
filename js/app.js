@@ -20,7 +20,7 @@ document.getElementById('key-pad').addEventListener('click', function (event) {
     const number = event.target.innerText;
     const calcInput = document.getElementById('type-numbers');
     if (isNaN(number)) {
-        if(number == 'C'){
+        if (number == 'C') {
             calcInput.value = '';
         }
     }
@@ -29,4 +29,21 @@ document.getElementById('key-pad').addEventListener('click', function (event) {
         const newNumber = priviousNumber + number;
         calcInput.value = newNumber;
     }
-})
+});
+
+function verifyPin() {
+    const genaratedPin = document.getElementById('display-pin').value;
+    const typeNumber = document.getElementById('type-numbers').value;
+    const successMessage = document.getElementById('verify-success');
+    const failError = document.getElementById('vefify-faild');
+    if (genaratedPin == typeNumber) {
+
+        successMessage.style.display = 'block';
+        failError.style.display = 'none';
+    }
+    else {
+
+        failError.style.display = 'block';
+        successMessage.style.display = 'none';
+    }
+};
